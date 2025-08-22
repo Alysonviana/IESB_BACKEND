@@ -13,4 +13,5 @@ let exec = 3.0;
 let trab = 1.0;
 let prova = 6.0;
 
-console.log(`A nota final calculada(${exec+trab+prova}).`)
+console.log(`A nota final calculada(${exec+trab+prova}).`);
+
