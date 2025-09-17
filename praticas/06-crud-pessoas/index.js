@@ -7,7 +7,8 @@ app.use(cors()) // habilitar o CORS do brouser
 app.use(express.json()) // receber Json no body da requisição
 
 // mapear os meus routes
-
+const pesssoasRouter = require('./routes/Pessoas')
+app.use(pesssoasRouter)
 
 // executar a aplicação 
 
