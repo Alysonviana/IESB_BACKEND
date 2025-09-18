@@ -65,6 +65,33 @@ router.post('/pessoas', (req, res, next) =>{
 })
 
 
+// #Atualização
+// PUT ou PATCH /pessoas/:id
 
+router.put('/pessoa/:id', (req,res,next)=>{
+    const id = req.params.id
+    const pessoa = listePessoas.find(pessoa => pessoa.id == id )
+    //validando se a pessoa existe
+    if(!pessoa){
+        return res.status(404).json({erro: "Pessoa não encontrada!!!"})
+    }
+    //Validando se os dados ora atualizar vienram na requisição 
+    if(!nome || !email || !dataNacimento){
+        return res.status(400).json({erro: "nome, email, dataNacimento sao Obrigatorios"})
+    }
+    //atualize os dados da pessoa
+    pessoa.nome = nome
+    pessoa.email = email
+    pessoa.dataNacimento = dataNacimento
+    // responder com os dados da pessoa atualizados
+    res.json({message: "Pessoa atualisada com sucesso!!!"})
+})
+
+
+
+
+
+// #Remoção
+// DELETE /pessoas/:id
 
 module.exports = router
