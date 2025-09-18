@@ -30,12 +30,41 @@ router.get('/pessoas', (req, res, nest) => {
 //GET /Pessoas/ id
 router.get('/pessoas/:id', (req, res, next) => {
     //recebendo o ID como parametros dinamicos
-    const id = req.parass.id
+    const id = req.params.id
     const pessoas = listePessoas.find(pessoas => pessoas.id == id)
-    if(pessoas){
+    if(!pessoas){
         return res.status(404).json({error:"Pessoa não encontrada!!!"})
     }
     res.json(pessoas)
 })
-//exporta o roteador 
+
+//#criacao
+// POST / pessoas
+router.post('/pessoas', (req, res, next) =>{
+    // Validando se todos os campos foram preenchidos
+    const {nome, cpf, email, dataNacimento} = req.body
+    if(!nome || !cpf || !email || !dataNacimento){
+        return res.status(400).json({
+            error: "NOME, Cpf, Email e DataNacimento São Obrigatorios!!!"
+        })
+    }
+    //validar se o cpf ja foi cadastrado
+    if(listePessoas.some(pessoa => pessoa.cpf == cpf)){
+        return res.status(409).json({error: "CPF Ja Cadastrado!!!"})
+    }
+
+    const novaPessoa ={
+        id: Date.new(),
+        nome,
+        cpf,
+        email,
+        dataNacimento
+    }
+    listePessoas.push(novaPessoa)
+    res.status(201).json({message: "pessoa cadastrada com sucesso", novaPessoa})
+})
+
+
+
+
 module.exports = router
