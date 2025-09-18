@@ -4,7 +4,7 @@ const router = express.Router()
 //mapear as logicas e a rotas
 
 //lista de pessoas pra simular o banco de dados
-let pessoas = [
+let listePessoas = [
     {
         id : 1,
         nome: "joão",
