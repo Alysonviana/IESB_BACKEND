@@ -27,5 +27,15 @@ let pessoas = [
 router.get('/pessoas', (req, res, nest) => {
     res.json(listePessoas)
 })
+//GET /Pessoas/ id
+router.get('/pessoas/:id', (req, res, next) => {
+    //recebendo o ID como parametros dinamicos
+    const id = req.parass.id
+    const pessoas = listePessoas.find(pessoas => pessoas.id == id)
+    if(pessoas){
+        return res.status(404).json({error:"Pessoa não encontrada!!!"})
+    }
+    res.json(pessoas)
+})
 //exporta o roteador 
 module.exports = router
