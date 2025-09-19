@@ -88,10 +88,18 @@ router.put('/pessoa/:id', (req,res,next)=>{
 })
 
 
-
-
-
 // #Remoção
 // DELETE /pessoas/:id
+router.delete('/pessoa/:id',(req,res,next)=>{
+    const id = req.params.id
+    //validar se a pessoa nao existe
+    const pessoa = listePessoas.find(pessoa => pessoa.id == id)
+    if(!pessoa){
+        return res.status(404).json({error: "Pessoa nao encontrada!!!"})
+    }
+    listePessoas = listePessoas.filter(pessoa => pessoa.id == id)
+    res.json({ message: "pessoa excluida com sucesso!!!"})
+})
 
+//exporta o roteador
 module.exports = router
