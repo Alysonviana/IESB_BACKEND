@@ -9,7 +9,7 @@ app.use(express())
 mongoose.connect('mongodb+srv://Alyson_viana:6mmF7hQKM4zheoMT@cluster0.typqjen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
 .then(() => {
-    console.log("Conectado Com Sucesso")
+    console.log("Conectado Com Sucesso!!!")
 })
 .catch(err => {
     console.log("Erro ao conecta no mongodb", err)
