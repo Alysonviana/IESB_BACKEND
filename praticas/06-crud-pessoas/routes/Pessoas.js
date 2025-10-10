@@ -8,15 +8,17 @@ let listePessoas = [
     {
         id : 1,
         nome: "joão",
-        cpf: "00100100101",
         email: "joao@pedro.com",
+        cpf: "00100100101",
+        telefone:"6199990000",
         dataNacimento: "01/01/2000"
     },
     {
         id:2,
         nome: "Maria",
-        cpf: "00200200202",
         email: "maria@jeans.com",
+        cpf: "00200200202",
+        telefone: "62999998888",
         dataNacimento: "01/01/1999"
     },
 ]
