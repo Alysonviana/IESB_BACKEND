@@ -7,13 +7,13 @@ const DB_USER=process.env.DB_USER
 const DB_PASS=process.env.DB_PASS
 const DB_NAME=process.env.DB_NAME
 
-const url = 'mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0'
+const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`
 
 const app = express()
 
 app.use(express())
 
-mongoose.connect('mongodb+srv://Alyson_viana:6mmF7hQKM4zheoMT@cluster0.typqjen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect(url)
 
 .then(() => {
     console.log("Conectado Com Sucesso!!!")
