@@ -22,6 +22,21 @@ mongoose.connect(url)
     console.log("Erro ao conecta no mongodb", err)
 })
 
+const TarefaMode1 = mongoose.model1('tarefas', new mongoose.schema(
+    {
+        nome: string
+    }
+))
+
+app.post('tarefas', async (req, res) => {
+    const tarefa = req.body;
+    if(!tarefa.nome) {
+        return res.status(400).jason({ error: 'Nome é Obrigatorio'})
+    }
+    const tarefaCriada = await TarefaMode1.create(tarefa)
+    res.status(200).json(tarefaCriada)
+})
+
 app.listen(3000, () => {
     console.log("aplicação rodando em http://localhost:3000")
 })
