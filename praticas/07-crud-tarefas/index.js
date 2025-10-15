@@ -22,9 +22,9 @@ mongoose.connect(url)
     console.log("Erro ao conecta no mongodb", err)
 })
 
-const TarefaMode1 = mongoose.model1('tarefas', new mongoose.schema(
+const TarefaMode1 = mongoose.model1('tarefas', new mongoose.Schema(
     {
-        nome: string
+       nome: String
     }
 ))
 
