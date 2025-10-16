@@ -11,7 +11,7 @@ const url = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?retryWrit
 
 const app = express()
 
-app.use(express())
+app.use(express.json())
 
 mongoose.connect(url)
 
@@ -42,7 +42,7 @@ app.get('/tarefas', async (req, res) =>{
     res.json(tarefas)
 })
 
-app.get('/tarefas:id', async (req, res) => {
+app.get('/tarefas/:id', async (req, res) => {
     const id = req.params;
     const tarefa = req.body;
     if(!tarefa.nome){
@@ -56,7 +56,7 @@ app.get('/tarefas:id', async (req, res) => {
     res.json(tarefaAtualizada)
 })
 
-app.delete('/tarefas:id', async (req, res) =>{
+app.delete('/tarefas/:id', async (req, res) =>{
     const id = req.params.id
     await TarefaModel.findByIdAndDelete(id)
     res.json({message : 'Tarefas deletadas com Sucesso!!'})
