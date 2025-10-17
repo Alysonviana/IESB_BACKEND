@@ -26,6 +26,7 @@ const LivroModel = mongoose.model('livros', new mongoose.Schema({
     autor: String,
     editora: String,
     ano: Number,
+    preco: Number,
 }))
 
 // Criar um livro
