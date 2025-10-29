@@ -8,4 +8,4 @@ function validateID(req, res, next) {
 }
 
 
-module.exports = validateID;
+module.exports = {validateID};
