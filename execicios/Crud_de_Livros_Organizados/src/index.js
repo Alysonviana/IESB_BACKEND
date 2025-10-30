@@ -8,6 +8,10 @@ const port = 3000;
 
 app.use(express.json());
 
+// conexão com o banco de dados
+const mongoose = require('mongoose')
+const dotenv = require('dotenv').config()
+
 const DB_HOST = process.env.DB_HOST
 const DB_USER = process.env.DB_USER
 const DB_PASS = process.env.DB_PASS
